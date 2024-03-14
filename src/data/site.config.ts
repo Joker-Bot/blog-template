@@ -1,6 +1,6 @@
 interface SiteConfig {
 	author: string
-	title: string
+	// title: string
 	description: string
 	lang: string
 	ogLocale: string
