@@ -2,8 +2,6 @@
 export const CATEGORIES = [
 	'Blockchain Technology',
 	'Solidity Programming Language',
-	'challenges',
-	'Category 4',
-	'Category 5'
+	'challenges'
 	
 ] as const
