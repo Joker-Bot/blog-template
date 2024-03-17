@@ -1,8 +1,8 @@
 // List of categories for blog posts
 export const CATEGORIES = [
 	'Blockchain Technology',
-	'Category 2',
-	'Category 3',
+	'Solidity Programming Language',
+	'challenges',
 	'Category 4',
 	'Category 5'
 	
