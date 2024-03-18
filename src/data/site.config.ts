@@ -1,6 +1,6 @@
 interface SiteConfig {
 	author: string
-	// title: string
+	 title: string
 	description: string
 	lang: string
 	ogLocale: string
@@ -10,7 +10,7 @@ interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
 	author: 'JokerBot', // Site author
-	// title: 'Astro Theme OpenBlog', // Site title.
+	 title: 'Cyber Security', // Site title.
 	description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', // Description to display in the meta tags
 	lang: 'en-GB',
 	ogLocale: 'en_GB',
