@@ -9,12 +9,11 @@ tags: ['blockchain', 'cryptography', 'Web3']
 
 **Introduction to Blockchain Technology.**
 In this Article, We will Cover these topics:- 
-- **What is Blockchain? 
-- **Blockchain Vs Cryptocurrency.
-- **Blockchain Types?
-- **Blockchain Technologies?
-// Astro component syntax is a superset of HTML. The syntax was [designed to feel familiar to anyone with experience writing HTML or JSX]
-//(#differences-between-astro-and-jsx), and adds support for including components and JavaScript expressions.
+- What is Blockchain? 
+- Blockchain Vs Cryptocurrency.
+- Blockchain Types?
+- Blockchain Technologies?
+
 
 ## What is Blockchain?
 
@@ -26,7 +25,7 @@ Using this approach, you can include **dynamic** values that are calculated in t
 See below for more examples of [differences between Astro and JSX](#differences-between-astro-and-jsx).
 :::
 
-### Variables
+### Blockchain Vs Cryptocurrency.
 
 Local variables can be added into the HTML using the curly braces syntax:
 
@@ -41,7 +40,7 @@ const name = 'Astro'
 </div>
 ```
 
-### Dynamic Attributes
+## Blockchain Types?
 
 Local variables can be used in curly braces to pass attribute values to both HTML elements and components:
 
@@ -89,7 +88,7 @@ Instead, use a client-side script to add the event handler, like you would in va
 
 :::
 
-### Dynamic HTML
+## Blockchain Technologies?
 
 Local variables can be used in JSX-like functions to produce dynamically-generated HTML elements:
 
@@ -115,7 +114,7 @@ const visible = true
 {visible ? <p>Show me!</p> : <p>Else show me!</p>}
 ```
 
-### Dynamic Tags
+
 
 You can also use dynamic tags by setting a variable to an HTML tag name or a component import:
 
@@ -138,7 +137,7 @@ When using dynamic tags:
 
 - **Hydration directives are not supported.** When using [`client:*` hydration directives](/en/core-concepts/framework-components/#hydrating-interactive-components), Astro needs to know which components to bundle for production, and the dynamic tag pattern prevents this from working.
 
-### Fragments
+
 
 Astro supports using either `<Fragment> </Fragment>` or the shorthand `<> </>`.
 
@@ -152,11 +151,11 @@ const htmlString = '<p>Raw HTML content</p>'
 <Fragment set:html={htmlString} />
 ```
 
-### Differences between Astro and JSX
+
 
 Astro component syntax is a superset of HTML. It was designed to feel familiar to anyone with HTML or JSX experience, but there are a couple of key differences between `.astro` files and JSX.
 
-#### Attributes
+
 
 In Astro, you use the standard `kebab-case` format for all HTML attributes instead of the `camelCase` used in JSX. This even works for `class`, which is not supported by React.
 
@@ -165,7 +164,7 @@ In Astro, you use the standard `kebab-case` format for all HTML attributes inste
 <div class="box" data-value="3" />
 ```
 
-#### Multiple Elements
+
 
 An Astro component template can render multiple elements with no need to wrap everything in a single `<div>` or `<>`, unlike JavaScript or JSX.
 
@@ -178,7 +177,7 @@ An Astro component template can render multiple elements with no need to wrap ev
 <p>Astro supports multiple root elements in a template.</p>
 ```
 
-#### Comments
+
 
 In Astro, you can use standard HTML comments or JavaScript-style comments.
 
