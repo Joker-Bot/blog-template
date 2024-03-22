@@ -30,52 +30,31 @@ tags: ['blockchain', 'cryptography', 'Web3']
 
 
 ## Blockchain Types?
+- Public Blockchain
+- Private Blockchain
+- Federated/consortium
 
-Local variables can be used in curly braces to pass attribute values to both HTML elements and components:
+<span style="color: red;">Public Blockchain:</span> 
+	* A public blockchain is permissionless. Anyone can access the network and read, write, or participate without explicit authorization and permission in 
+	  a public blockchain.
+	* A public blockchain is decentralized and has no single network-controlled entity
+	* Data on a public blockchain is protected because data cannot be changed or manipulated until it has been checked on the blockchain.
+	* Well-known examples of a public blockchain are Bitcoin and Ethereum.
 
-```astro title="src/components/DynamicAttributes.astro" "{name}" "${name}"
----
-const name = 'Astro'
----
 
-<h1 class={name}>Attribute expressions are supported</h1>
+Private Blockchain: 
+A private blockchain is a permissioned blockchain. Private blockchains function based on access restrictions that limit individuals who may interact in the network. In these blockchains, there are one or more network management organizations, and this contributes to creating dependence on transfers from third parties.
+Only the individuals involved in a contract will have information about it in a private blockchain, while the others will not be able to access it.
+Only authorized nodes can read and write the transaction data into a blockchain. One authorized node can be the arbitrator for any dispute.
+Security can be implemented straightforwardly. It’s easy or computationally less expensive to add a block in a private blockchain.
+A well-known example of a private blockchain is the Linux Foundation’s Hyperledger Fabric.
+Federated/Consortium Blockchain: 
 
-<MyComponent templateLiteralNameAttribute={`MyNameIs${name}`} />
-```
-
-:::caution
-HTML attributes will be converted to strings, so it is not possible to pass functions and objects to HTML elements.
-For example, you can't assign an event handler to an HTML element in an Astro component:
-
-```astro
----
-// dont-do-this.astro
-function handleClick() {
-	console.log('button clicked!')
-}
----
-
-<!-- ❌ This doesn't work! ❌ -->
-<button onClick={handleClick}>Nothing will happen when you click me!</button>
-```
-
-Instead, use a client-side script to add the event handler, like you would in vanilla JavaScript:
-
-```astro
----
-// do-this-instead.astro
----
-
-<button id='button'>Click Me</button>
-<script>
-	function handleClick() {
-		console.log('button clicked!')
-	}
-	document.getElementById('button').addEventListener('click', handleClick)
-</script>
-```
-
-:::
+A Consortium or Federated Blockchain is a private, permissioned blockchain – as opposed to a public blockchain – where entities can only become members of the network by prior approval or voting.
+This type is a group-owned system where sole autonomy is removed. Permissions are vested in a group of companies or individuals.
+Here, more than one central entity is in charge of deciding and providing read, write, and audit access to pre-selected nodes in the blockchain. Only consortium members can make, validate, and review transactions.
+This type is suitable for use between companies that often have dealings with each other. While these are more secure, they come at the cost of decentralization. However, this suits enterprise use cases and business processes.
+A well-known example is R3’s Corda Blockchain
 
 ## Blockchain Technologies?
 
