@@ -1,83 +1,119 @@
 ---
 title: 'Blockchain Technology (Part 2)'
-description: Blockchain Ecosystem In this Article, We will Cover these topics:-'
+description:'Blockchain Ecosystem In this Article, We will Cover these topics:-'
 pubDate: 'Jul 02 2022'
 heroImage: '../../assets/images/Block.png'
 category: 'Blockchain Technology'
-tags: ['JavaScript', 'css', 'HTML5', 'GitHub']
+tags: ['blockchain', 'cryptography', 'Web3']
 ---
 
-**If you know HTML, you already know enough to write your first Astro component.**
+**Blockchain Ecosystem**((In this Article, We will Cover these topics)):- 
+- Merkle Tree & Hashing
+- Blocks wallets & Addresses
+- Cryptography & Cryptographic Algorithms
+- Public & Private key
 
-Astro component syntax is a superset of HTML. The syntax was [designed to feel familiar to anyone with experience writing HTML or JSX](#differences-between-astro-and-jsx), and adds support for including components and JavaScript expressions.
 
-## JSX-like Expressions
+## Merkle Tree & Hashing
+- Merkle Tree:
+	* A Merkle tree is a data structure that uses hashing to store and verify the data.
+	* In the Merkle tree, each root node contains the hash value of a data block, and non-leaf nodes contain the hash of the child nodes.
+	* Merkle trees are used for effective data validation in distributed systems.
+	* In a blockchain, each leaf node is the hash of a transaction in the block, and each non-leaf node is a hash of its children.
+	* Merkle trees are secure because of hashing. If any data is changed, the Merkle tree structure becomes incorrect.
+	* Merkle trees are small in size, making it much easier to maintain and verify the data in the tree.
 
-You can define local JavaScript variables inside of the frontmatter component script between the two code fences (`---`) of an Astro component. You can then inject these variables into the component's HTML template using JSX-like expressions!
+- Merkle Tree in Blockchain:
+	* Merkle trees are used at the base layer of the blockchains to store and verify transaction data.
+	* Merkle trees provide data security and integrity by using hash functions.
+	* In the case of blockchains, without Merkle trees, the blockchain will become very hard to manage 
+	  and use.
+	* The node would need to compare each entry line by line.
+	* Any discrepancy between the ledgers compromises the security of the network.
+	* Every verification request would require large packets of information to be sent over the network.
+	* A lot of processing power is consumed to compare the ledgers to ensure that there have been 
+          no changes.
 
-:::note[dynamic vs reactive]
-Using this approach, you can include **dynamic** values that are calculated in the frontmatter. But once included, these values are not **reactive** and will never change. Astro components are templates that only run once, during the rendering step.
 
-See below for more examples of [differences between Astro and JSX](#differences-between-astro-and-jsx).
-:::
 
-### Variables
 
-Local variables can be added into the HTML using the curly braces syntax:
 
-```astro
----
-const name = 'Astro'
----
 
-<div>
-	<h1>Hello {name}!</h1>
-	<!-- Outputs <h1>Hello Astro!</h1> -->
-</div>
-```
 
-### Dynamic Attributes
 
-Local variables can be used in curly braces to pass attribute values to both HTML elements and components:
 
-```astro title="src/components/DynamicAttributes.astro" "{name}" "${name}"
----
-const name = 'Astro'
----
+## Blocks wallets & Addresses
+- Blockchain is a decentralized ledger of all transactions across a peer-to-peer network
+- Cryptocurrency is a medium of exchange, created and stored electronically in the blockchain
+	![Alt text for the image](../../assets/images/BCtablepart1.png)
 
-<h1 class={name}>Attribute expressions are supported</h1>
 
-<MyComponent templateLiteralNameAttribute={`MyNameIs${name}`} />
-```
+## Cryptography & Cryptographic Algorithms
+- Public Blockchain
+- Private Blockchain
+- Federated/consortium
 
-:::caution
-HTML attributes will be converted to strings, so it is not possible to pass functions and objects to HTML elements.
-For example, you can't assign an event handler to an HTML element in an Astro component:
+<span style="color:orange;">Public Blockchain:</span> 
+	* A public blockchain is permissionless. Anyone can access the network and read, write, or participate without explicit authorization and permission in 
+	  a public blockchain.
+	* A public blockchain is decentralized and has no single network-controlled entity
+	* Data on a public blockchain is protected because data cannot be changed or manipulated until it has been checked on the blockchain.
+	* Well-known examples of a public blockchain are Bitcoin and Ethereum.
 
-```astro
----
-// dont-do-this.astro
-function handleClick() {
-	console.log('button clicked!')
-}
----
 
-<!-- ❌ This doesn't work! ❌ -->
-<button onClick={handleClick}>Nothing will happen when you click me!</button>
-```
+<span style="color: orange;">Private Blockchain:</span> 
+	* A private blockchain is a permissioned blockchain. Private blockchains function based on access restrictions that limit individuals who may interact 
+	in the network. In these blockchains, there are one or more network management organizations, and this contributes to creating dependence on 
+	transfers from third parties.
+	* Only the individuals involved in a contract will have information about it in a private blockchain, while the others will not be able to access it.
+	* Only authorized nodes can read and write the transaction data into a blockchain. One authorized node can be the arbitrator for any dispute.
+	* Security can be implemented straightforwardly. It’s easy or computationally less expensive to add a block in a private blockchain.
+	* A well-known example of a private blockchain is the Linux Foundation’s Hyperledger Fabric.
+	
+<span style="color:orange;">Federated/Consortium Blockchain:</span> 
+	* A Consortium or Federated Blockchain is a private, permissioned blockchain – as opposed to a public blockchain – where entities can only become members 	of the network by prior approval or voting.
+	* This type is a group-owned system where sole autonomy is removed. Permissions are vested in a group of companies or individuals.
+	* Here, more than one central entity is in charge of deciding and providing read, write, and audit access to pre-selected nodes in the blockchain. 
+	Only consortium members can make, validate, and review transactions.
+	* This type is suitable for use between companies that often have dealings with each other. While these are more secure, they come at the cost 
+	of decentralization. However, this suits enterprise use cases and business processes.
+	* A well-known example is R3’s Corda Blockchain
 
-Instead, use a client-side script to add the event handler, like you would in vanilla JavaScript:
+## Public & Private key
+- Bitcoin  
+- Ethereum  
+- Hyperledger  
+- Corda  
+- Quorum 
 
-```astro
----
-// do-this-instead.astro
----
+<span style="color:orange;"> Bitcoin:</span> 
+	* Bitcoin is a globally known cryptocurrency and digital payment system. It was the first decentralized digital currency whose ledger is maintained 
+          by blockchain openly. 
+	* Bitcoin is an implementation of blockchain distributed ledger technology and the transactions in Bitcoin blockchain take place directly between users, 	  without an intermediary. 
+	* Bitcoin is permissionless, meaning nobody owns or regulates Bitcoin but everybody can participate in the network. 
+	* There are no physical Bitcoins, just balances stored on a public database that everyone has open access to, which is 
+	* Checked by a vast amount of processing power along with all Bitcoin transactions 
 
-<button id='button'>Click Me</button>
-<script>
-	function handleClick() {
-		console.log('button clicked!')
-	}
-	document.getElementById('button').addEventListener('click', handleClick)
-</script>
-```
+<span style="color:orange;"> Ethereum:</span> 
+	* Ethereum is also an open-source software platform, based on Blockchain technology that enables developers to build and deploy 
+	   decentralized applications. 
+	* It offers a decentralized virtual machine aka Ethereum Virtual Machine (EVM) which can execute scripts using a global network of public nodes. 
+	* It allows us to create and run Smart Contracts and Distributed Applications (DApps) without any downtime, fraud, control, or intervention by a 
+	  third party. 
+	* Ethereum is not just a framework but also a programming language running on a blockchain that lets developers create and publish 
+	  distributed applications. 
+
+<span style="color:orange;"> Hyperledger: </span>
+	* Hyperledger is a multi-project, open-source blockchain platform created by Linux Foundation. 
+	* It is a global collaboration, hosted by The Linux Foundation, including leaders in finance, banking, the Internet of Things, supply chains, 			  manufacturing, and technology. 
+	* Hyperledger acts as an operating system for marketplaces, data-sharing networks, micro-currencies, and decentralized digital communities. 
+	* It serves as a neutral home for various distributed ledger frameworks including Hyperledger Fabric, Sawtooth, and Indy, as well as tools like 		  Hyperledger Caliper and libraries like Hyperledger Ursa. 
+
+<span style="color:orange;">Corda: </span> 
+	* Corda is a distributed ledger open-source platform for businesses. It is among the most sophisticated platforms to enable the implementation 
+	  of enterprise blockchain applications. 
+ 	* It is not a blockchain and also not a native cryptocurrency. 
+ 	* Nodes here are arranged in an authenticated peer-to-peer network with no message broadcasting. 
+ 	* Corda is not stuck to any particular consensus algorithm, as one Corda network may contain multiple notaries that provide their guarantees using 
+          a variety of different algorithms. 
+	* Corda promises that the data is only exchanged with parties who have a ‘need to know’ information. It was designed to add transparency and confidence, 	  while preserving privacy and protection with ongoing interactions. 
