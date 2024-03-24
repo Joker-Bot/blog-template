@@ -28,8 +28,21 @@ tags: ['blockchain', 'cryptography', 'Web3']
 	* Merkle trees provide data security and integrity by using hash functions.
 	* In the case of blockchains, without Merkle trees, the blockchain will become very hard to manage 
 	  and use.
-	
 
+
+		![Alt text for the image](../../assets/images/BCpart2.png)
+The above example is the most common and simple form of a Merkle tree, i.e., Binary Merkle Tree. There are four transactions in a block: TX1, TX2, TX3, and TX4. Here you can see, there is a top hash which is the hash of the entire tree, known as the Root Hash, or the Merkle Root. Each of these is repeatedly hashed, and stored in each leaf node, resulting in Hash 0, 1, 2, and 3. Consecutive pairs of leaf nodes are then summarized in a parent node by hashing Hash0 and Hash1, resulting in Hash01, and separately hashing Hash2 and Hash3, resulting in Hash23. The two hashes (Hash01 and Hash23) are then hashed again to produce the Root Hash or the Merkle Root.
+
+		![Alt text for the image](../../assets/images/BCpart2.1.png)
+Merkle Root is stored in the block header. The block header is part of the Bitcoin block which gets hash in the process of mining. It contains the hash of the last block, a Nonce, and the Root Hash of all the transactions in the current block in a Merkle Tree. So having the Merkle root in the block header makes the transaction tamper-proof. As this Root Hash includes the hashes of all the transactions within the block, these transactions may result in saving disk space.
+
+- Hashing:
+	* Hashing is the process of having an input item of any length converted into an output item of a fixed length.
+	* Transactions of different lengths are run through a given hashing algorithm, and all give an output of a fixed length, called a hash.
+	* The hash size will depend on the hash function used, but the output using a particular hashing algorithm will be of a specific size.
+	* Cryptographic hash functions are one of the most important techniques in the field of cryptography and are used to accomplish many safety goals such 
+        as authentication, digital signatures, generation of pseudo numbers, digital steganography, digital time-stamping, etc.
+	* Bitcoin uses a cryptographic hashing algorithm- Secure Hashing Algorithm 256, often known as SHA-256.
 
 ## Blocks wallets & Addresses
 - Blockchain is a decentralized ledger of all transactions across a peer-to-peer network
