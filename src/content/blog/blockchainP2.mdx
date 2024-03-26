@@ -37,17 +37,56 @@ The above example is the most common and simple form of a Merkle tree, i.e., Bin
 Merkle Root is stored in the block header. The block header is part of the Bitcoin block which gets hash in the process of mining. It contains the hash of the last block, a Nonce, and the Root Hash of all the transactions in the current block in a Merkle Tree. So having the Merkle root in the block header makes the transaction tamper-proof. As this Root Hash includes the hashes of all the transactions within the block, these transactions may result in saving disk space.
 
 - Hashing:
-	* Hashing is the process of having an input item of any length converted into an output item of a fixed length.
-	* Transactions of different lengths are run through a given hashing algorithm, and all give an output of a fixed length, called a hash.
-	* The hash size will depend on the hash function used, but the output using a particular hashing algorithm will be of a specific size.
-	* Cryptographic hash functions are one of the most important techniques in the field of cryptography and are used to accomplish many safety goals such 
-        as authentication, digital signatures, generation of pseudo numbers, digital steganography, digital time-stamping, etc.
-	* Bitcoin uses a cryptographic hashing algorithm- Secure Hashing Algorithm 256, often known as SHA-256.
+	* Hashing is the process of having an input item of any length converted into an 
+	output item of a fixed length.
+	* Transactions of different lengths are run through a given hashing algorithm, 
+	and all give an output of a fixed length, called a hash.
+	* The hash size will depend on the hash function used, but the output using 
+	a particular hashing algorithm will be of a specific size.
+	* Cryptographic hash functions are one of the most important techniques in the field of 	cryptography and are used to accomplish many safety goals such 
+        as authentication, digital signatures, generation of pseudo numbers, 
+	digital steganography, digital time-stamping, etc.
+	* Bitcoin uses a cryptographic hashing algorithm- Secure Hashing Algorithm 256, 
+	often known as SHA-256.
 
 ## Blocks wallets & Addresses
-- Blockchain is a decentralized ledger of all transactions across a peer-to-peer network
-- Cryptocurrency is a medium of exchange, created and stored electronically in the blockchain
-	![Alt text for the image](../../assets/images/BCtablepart1.png)
+- Blocks
+
+	* A block is the fundamental unit of a Blockchain
+	* Every block contains a hash of all the previous blocks.
+	* Blocks use Merkle tree to store the hash of all the transactions to create 
+	 the hash of block.
+	* A block is divided into:
+	 - <span style="color:orange;">Block header </span>
+	 - <span style="color:orange;">Block body </span>
+	Block header is divided into six components:
+	* Version number
+	* Previous block hash
+	* Merkle tree root hash
+	* nbits
+	* Nonce
+	* Timestamp
+
+	Block body contains all the transactions:	
+	![Alt text for the image](../../assets/images/BCpart2.2.png)
+
+- Wallet:
+	* A Blockchain wallet is a software program that enables users to buy, sell, 
+	and monitor the balance of their digital assets and record the transactions done 
+	using the wallet address.
+	* A wallet stores private and public keys for a user. As the name suggests, 
+	the public key is shared and works as the address while the private key is kept private.
+	* Public and private keys are used to encrypt and decrypt transactions so only 
+	the intended recipient can know the transaction data.
+	* A Blockchain wallet offers all the features available for safe and 
+	secure transactions and exchanges of funds between various parties.
+
+	There are three types of cryptocurrency wallets : </span>
+	* <span style="color:orange;">Software Wallets: </span>  like Metamask which runs on a 		 machine.
+	* <span style="color:orange;">Hardware Wallets: </span>  are storage devices on 
+	which users can store their keys.
+	* <span style="color:orange;">Paper Wallets: </span> are just writing down your 
+	public and private key on a paper and keeping it someplace safe.
 
 
 ## Cryptography & Cryptographic Algorithms
