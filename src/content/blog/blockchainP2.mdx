@@ -170,28 +170,83 @@ Cold Wallet:
 
 <span style="color:red;">NOTE : </span> In the case of blockchain, cryptography is used to encrypt transaction data to maintain the confidentiality and authenticity of transaction data.
 
+Types of Cryptography :
+	* Symmetric Key Cryptography
+ 		It is an encryption scheme where a single common key is used by the sender 
+		and recipient of messages to encrypt and decrypt messages.
+		Symmetric Key Schemes are quicker and easier to use. The speed is achieved 
+		on compromise of security as it is very difficult to exchange key between 
+		two people without revealing some hidden information.
+	* Asymmetric Key Cryptography
+		In this method, encryption and decryption are done using a pair of keys.
+		For encryption, a public key is used and a private key is used for decryption. 		The private key and the public key are unique.
+		Even if the public key is known by everyone, the intended receiver can only 		decode it because they alone know the private key.
+Symmetric Key Cryptography:
+	* Symmetric key cryptography uses a single key for encryption and decryption.
+	* Symmetric key encryption can be divided into two parts.
+		**Block
+		**stream
+	* Block cipher usually encrypts a fixed-size chunk of data.
+	* Stream cipher encrypts data byte-by-byte.
+	* Different kinds of symmetric key cryptography algorithms are AES, DES, 3DES, Salsa, 	  Seed, and Aria.
+
+	![Alt text for the image](../../assets/images/BCPart2.3.jpg)
+
+Asymmetric Key Cryptography:
+	* Asymmetric-Key Cryptography usually works with two pair of keys, i.e. Public Key and 	Private Key.
+	* A public key can be shared or published to other individuals. A private key is 
+	kept secret.
+	* Public keys are used to only encrypt data and private keys can decrypt data.
+	* There are many Asymmetric key encryption used, some are:
+		○ Rivest Shamir Adleman (RSA)
+		○ Digital Signature Algorithm (DSA)
+		○ Elliptic Curve Cryptography (ECC)
+		○ Elgamal
+	![Alt text for the image](../../assets/images/BCPart2.4.jpg)
+Algorithms Used in Blockchain Technology
+Blockchain is a distributed database existing on various computers with a decentralized ledger tracking digital assets on the P2P network.
+Some of the most popular encryption standards in blockchain are:
+	* SHA256
+	* Elliptic Curve Cryptography (ECC)
+	* RIPEMD-160
 
 ## Public & Private key
-- Public Key:
-* Public key is one of the two keys generated using asymmetric encryption protocols used in blockchain technology.
-* Public key which also acts as the address of an account on the blockchain is a fixed-length alphanumeric number. 
-  Bitcoin’s public key is 256 bits long.
-* Public key is made using a private key and then broadcasted to the public.
-* Public key encryption works such that anyone can encrypt using the public key but only the 
- owner of corresponding private key decrypts the message.
-* A shorter representative version of the public key is the address that is used for receiving funds
+Public Key:
+	* Public key is one of the two keys generated using asymmetric encryption 
+	protocols used in blockchain technology.
+	* Public key which also acts as the address of an account on the blockchain is 
+	a fixed-length alphanumeric number.Bitcoin’s public key is 256 bits long.
+	* Public key is made using a private key and then broadcasted to the public.
+	* Public key encryption works such that anyone can encrypt using the public key 
+	but only the owner of corresponding private key decrypts the message.
+	* A shorter representative version of the public key is the address that is used for 	receiving funds
 
-- Private Key:
-* A user has a public address and a private key to send and receive transactions. Users can maker transactions to 
-  the public address.
+Private Key:
+* A user has a public address and a private key to send and receive transactions. 
+ Users can maker transactions to the public address.
 * Private key is an alphanumeric string, it is critical to keep the key safe for the safety of crypto tokens.
 * Digital wallets are used to store the private keys.
-* Transactions use digital signatures to verify the sender. A valid digital signature confirms that the 
-  transaction comes from a particular user. Any change in the translation data invalidates the signature.
+* Transactions use digital signatures to verify the sender. A valid digital signature confirms that the transaction comes from a particular user. Any change in the translation data invalidates the signature.
 * Private keys can be stored differently, some method of storage are:
-	* <span style="color:oragne;">Paper wallets </span>
+	* <span style="color:orange;">Paper wallets </span>
 	* <span style="color:orange;"> Hardware wallets </span>
 	* <span style="color:orange;"> Cold storage like pen-drives </span>
 	* <span style="color:orange;"> Offline software wallet. </span>
 
-* There are Hot wallets connected to internet which can be used to store the keys online
+* There are Hot wallets connected to internet which can be used to store the keys online.
+
+				Public VS Private Key
+	![Alt text for the image](../../assets/images/BCpart2.5.png)
+
+So, Blockchain is designed to make it possible for anyone to use the system.
+This means that the creation of a valid blockchain address is fairly simple (even if wallets didn’t do it for you):
+1- Private Key Generation: A private key is a random number that may be required to fulfill certain requirements. For example, the private key may need to be a prime number. The number of potential private keys means that a well-generated one is unlikely to be the same as any other user’s private key.
+
+2- Public Key Generation: A public key is derived from the private key using an operation specific to the algorithm used by the blockchain. For example, in Elliptic Curve Cryptography (ECC), the public key is the result of performing point multiplication between the private key and a public point on the curve called a “generator”. With ECC, division is impossible, so the best way to derive a private key from a public key is via a brute-force search, and the algorithm is designed to make this computationally infeasible.
+
+3- Address Derivation: Typically, blockchain addresses are based on the hash of the associated public key. This makes it easy to derive an address from a public key but hard to go in reverse. The space of potential addresses makes it unlikely for two well-generated private keys to produce the same address.
+
+>>> In the end, a user has a private key, a public key, and an address. Each of these has its purpose:
+* Private Key: Private keys are used to digitally sign transactions from the associated account.
+* Public Key: A public key is used to validate the digital signature on a transaction.
+* Address: The account address is used by a transaction creator to specify where the transaction should be sent.
