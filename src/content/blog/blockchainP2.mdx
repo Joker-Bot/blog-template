@@ -61,12 +61,12 @@ Merkle Root is stored in the block header. The block header is part of the Bitco
 	 - <span style="color:orange;">Block body</span>
 
 Block header is divided into six components:
-	* Version number
-	* Previous block hash
-	* Merkle tree root hash
-	* nbits
-	* Nonce
-	* Timestamp
+	* <span style="color:orange;">Version number</span>
+	* <span style="color:orange;">Previous block hash</span>
+	* <span style="color:orange;">Merkle tree root hash</span>
+	* <span style="color:orange;">nbits</span>
+	* <span style="color:orange;">Nonce</span>
+	* <span style="color:orange;">Timestamp</span>
 
 	Block body contains all the transactions:	
 	![Alt text for the image](../../assets/images/BCpart2.2.png)
@@ -89,9 +89,83 @@ Block header is divided into six components:
 	* <span style="color:orange;">Paper Wallets: </span> are just writing down your 
 	public and private key on a paper and keeping it someplace safe.
 
+- Software Wallet:
+	* Desktop Wallet
+		- Can be downloaded on a PC or a laptop
+		- Desktop wallets are safe if your system is protected against virus attacks
+	* Online Wallet
+		- Run on cloud
+		- You can access them from any device through a web browser
+	* Mobile Wallet
+ 		- Available as a mobile app
+		 Easier and fast funds transfer
+
+- Hardware Wallets:
+	* Store private keys of users on a hardware device like USB or pendrive.
+	* Are compatible with various web interfaces.
+	* Are the safest wallet options available.
+
+- Paper Wallets:
+	* Generally, work with software wallets for buying and selling of funds.
+	* Currencies are transferred from software wallets to the public address on paper.
+
+There are two types of wallets used in Blockchain:
+	* <span style="color:orange;"> Hot Wallet </span>
+	* <span style="color:orange;"> Cold Wallet </span>
+
+Hot Wallet:
+* Are digital cryptocurrency wallets
+* Are online wallets through which it is easy to quickly transfer cryptocurrencies.
+* Private keys in the hot wallet are stored in the cloud for a quicker transfer.
+* Can be easily accessible 24/7 online and can be accessed from a laptop or mobile, 
+ but if compromised, there is a chance of unrecoverable theft.
+* Hot Wallet are free of charge.
+* Online wallet, Desktop wallet and Mobile wallet consider Hot Wallet
+<span style="color:green;"> Examples </span>: Coinbase and Blockchain.info
+
+Cold Wallet:
+* Are physical devices that store cryptos inside of them.
+* Are offline digital wallets where the transfers are digitally signed and then electronically 
+  disclosed.
+* Private keys are kept in independent hardware that is not connected to internet or the 
+  cloud, but stored on paper document.
+* Transaction approach helps to shield the wallet from unauthorized entry.
+* Cold wallets are expensive in comparison to hot wallets.
+* Hardware wallet and Paper wallet consider Cold Wallet.
+<span style="color:green;"> Examples </span>: Trezor and Ledger
+
+- Address:
+* A Blockchain address is used to identify a user on the blockchain network. It is a special 
+ sequence of numbers, letters, and functions.
+* It applies to a particular network destination where it is possible to transfer the 
+ cryptocurrency.
+* An address is a placeholder to accept and send blockchain transactions.
+* Pay-to-IP had been abandoned in Bitcoin. Pay-to-Public Key Hash became the new standard 
+ format for Bitcoin addresses.
+* Public keys are generally used to create an address for a user.
+*  The steps to create an address include:
+	- Hashing of public key using SHA 256
+	- Re-hashing using RIPEMD-160
+	- Adding “00” prefix
+	- Adding checksum bytes at the end
+	- Encode the result with base58 encoding
+
+<span style="color:red;">NOTE : </span>
+1- Address is a representation of a public key
+2- If you paste an address in your Bitcoin wallet, it scans the prefix and calculates the checksum.
+3- It refuses the address if it doesn’t fit. It is difficult to transfer funds to an incorrect address because of a trying mistake
 
 ## Cryptography & Cryptographic Algorithms
+* Cryptography is a technique to secure data using computer software.
+* It works such that users can encrypt and decrypt the transaction so that the data is not 
+ leaked to third party.
+* It is derived from mathematical concepts and a set of rule-based calculations.
+* Cryptographic Algorithms usually involves three things:
+	- Cryptographic Key Generation
+	- Digital Signing
+	- Verification to Protect Privacy
 
+<span style="color:red;">NOTE : </span> In the case of blockchain, cryptography is used to encrypt transaction data to maintain the confidentiality and authenticity of transaction data.
 
 
 ## Public & Private key
