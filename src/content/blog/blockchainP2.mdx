@@ -241,11 +241,11 @@ Private Key:
 So, Blockchain is designed to make it possible for anyone to use the system.
 This means that the creation of a valid blockchain address is fairly simple (even if wallets didn’t do it for you):
 
-1- <span style="color:baby blue;"> Private Key Generation: </span> A private key is a random number that may be required to fulfill certain requirements. For example, the private key may need to be a prime number. The number of potential private keys means that a well-generated one is unlikely to be the same as any other user’s private key.
+1- <span style="color:orange;"> Private Key Generation: </span> A private key is a random number that may be required to fulfill certain requirements. For example, the private key may need to be a prime number. The number of potential private keys means that a well-generated one is unlikely to be the same as any other user’s private key.
 
-2- <span style="color:baby blue;"> Public Key Generation: </span> A public key is derived from the private key using an operation specific to the algorithm used by the blockchain. For example, in Elliptic Curve Cryptography (ECC), the public key is the result of performing point multiplication between the private key and a public point on the curve called a “generator”. With ECC, division is impossible, so the best way to derive a private key from a public key is via a brute-force search, and the algorithm is designed to make this computationally infeasible.
+2- <span style="color:orange;"> Public Key Generation: </span> A public key is derived from the private key using an operation specific to the algorithm used by the blockchain. For example, in Elliptic Curve Cryptography (ECC), the public key is the result of performing point multiplication between the private key and a public point on the curve called a “generator”. With ECC, division is impossible, so the best way to derive a private key from a public key is via a brute-force search, and the algorithm is designed to make this computationally infeasible.
 
-3- <span style="color:baby blue;"> Address Derivation:  </span> Typically, blockchain addresses are based on the hash of the associated public key. This makes it easy to derive an address from a public key but hard to go in reverse. The space of potential addresses makes it unlikely for two well-generated private keys to produce the same address.
+3- <span style="color:orange;"> Address Derivation:  </span> Typically, blockchain addresses are based on the hash of the associated public key. This makes it easy to derive an address from a public key but hard to go in reverse. The space of potential addresses makes it unlikely for two well-generated private keys to produce the same address.
 
 >> In the end, a user has a private key, a public key, and an address. Each of these has its purpose:
 * Private Key: Private keys are used to digitally sign transactions from the associated account.
