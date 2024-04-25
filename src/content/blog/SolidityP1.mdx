@@ -62,12 +62,11 @@ contract Function {
 There are various types of Solidity functions we’ll be covering (View and Pure Functions)
 
 <span style="color:DarkOrange;"> View functions: </span> are read-only function, which ensures that state variables cannot be modified after calling them. By default, a get method is view function
-	- Do not modify state
+- Do not modify state
 
 <span style="color:DarkOrange;"> Pure functions: </span>  do not read or modify the state variables, which returns the values only using the parameters passed to the function or local variables present in it. If the statements which read the state variables, access the address or balance, access any global variable block or msg, call a function that is not pure
-	- Do not modify state
-
-	- Do not read state
+- Do not modify state
+- Do not read state
 
 Example:
 
