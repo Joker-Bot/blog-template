@@ -7,15 +7,15 @@ category: 'Solidity Programming Language'
 tags: ['Programming', 'Web3', 'smart contract']
 ---
 
-** In this Article, We will explain these topics:-.**
+**In this Article, We will explain these topics:-
 
-- Value Types.
+- Variables Types.
 - Function.
 - View and Pure Functions.
 - Visibility.
 - Function Modifier
 
-## Value Types
+## Variables Types
   
 > Here we introduce you to some primitive data types available in Solidity:
 
@@ -27,20 +27,20 @@ tags: ['Programming', 'Web3', 'smart contract']
 
 > Default values :
 
-<span style="colorDarkOrange;">bool public </span> <span style="color:DodgerBlue;"> defaultBool; </span>  <span style="color:green;">// false  </span>
+<span style="Orange;">bool public </span> <span style="color:DodgerBlue;"> defaultBool; </span>  <span style="color:green;">// false  </span>
 
-uint public defaultUint; // 0
+<span style="Orange;">uint public </span> <span style="color:DodgerBlue;">defaultUint;</span> <span style="color:green;"> // 0 </span>
 
-int public defaultInt; // 0
+<span style="Orange;">int public </span> <span style="color:DodgerBlue;">defaultInt;</span>  <span style="color:green;">// 0 </span>
 
-### Variables
+### Function
 
-Local variables can be added into the HTML using the curly braces syntax:
+The basic syntax is shown here
 
 ```astro
----
-const name = 'Astro'
----
+function function-name(parameter-list) scope returns() {
+   //statements
+}
 
 <div>
 	<h1>Hello {name}!</h1>
