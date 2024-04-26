@@ -60,9 +60,9 @@ Solidity provides several time units that can be used in your code, including:
 <span style="color:green;">Example 1: </span> Time unit can be used to specify a duration in the smart contract like this:
 
 ```astro
----
+
 uint public lockPeriod = 1 week;
----
+
 ```
 
 <span style="color:DodgerBlue;"> 2- Ether & Wei </span>
@@ -74,7 +74,7 @@ Ether units are used to represent value, such as the amount of money being trans
 - Similar to how one dollar is equal to 100 cents, one ether is equal to 1018 wei.
 
 ```astro
----
+
 pragma solidity ^0.8.17;
 contract EtherUnits {
  // 1 wei is equal to 1boolpublicisOneWei =1wei==1;
@@ -83,7 +83,7 @@ contract EtherUnits {
 uint public oneEther =1ether;
        bool public isOneEther =1ether==1e18;
    }
----
+
 ```
 
 ![Alt text for the image](../../assets/images/Ethereumcurrency.png)
@@ -141,34 +141,35 @@ For the reason above, while and do while loops are rarely used.
 
 <span style="color:DodgerBlue;"> For loop Syntax: </span>
 ```astro
----
+
 for (initialization; test condition; iteration statement) {
        statement or block of code to be executed if the condition is True
 }
----
+
 ```
 <span style="color:DodgerBlue;"> While loop Syntax: </span>
 ```astro
----
+
 while (condition) {
 statement or block of code to be executed if the condition is True
 }
----
+
 ```
 
 <span style="color:DodgerBlue;"> do while loop Syntax: </span>
 ```astro
----
+
 do 
 {
    block of statements to be executed
 } while (condition);
 
----
+
 ```
 
 ```astro
----
+
+
 pragma solidity ^0.8.17;
 contract Loop {
   function loop() public { 
@@ -195,32 +196,96 @@ contract Loop {
         }
      }
   }
----
+
 ```
 
 
 ## Mapping
+Mapping is a reference type as arrays and structs.
 
-You can also use dynamic tags by setting a variable to an HTML tag name or a component import:
+It acts like a hash table or dictionary in any other language. These are used to store the data in the form of key-value pairs.
 
-```astro title="src/components/DynamicTags.astro" /Element|(?<!My)Component/
----
-import MyComponent from './MyComponent.astro'
-const Element = 'div'
-const Component = MyComponent
----
+Mappings are mostly used to associate the unique Ethereum address with the associated value type.
 
-<Element>Hello!</Element>
-<!-- renders as <div>Hello!</div> -->
-<Component />
-<!-- renders as <MyComponent /> -->
+<span style="color:DodgerBlue;"> Syntax:  </span>
+```astro
+mapping(keyType => valueType).
+```
+- keyType: can be any built-in value type, bytes, string, or any contract.
+- valueType: can be any type including another mapping or an array.
+
+> NOTE: Mappings are not iterable
+
+```astro
+pragma solidity ^0.8.17;
+contract Mapping {
+    // Mapping from address to uint
+    mapping(address => uint) public myMap;
+  
+    function get(address _addr) public view returns (uint) {
+        // Mapping always returns a value.
+        // If the value was never set, it will return the default value.
+        return myMap[_addr];
+    }
+    
+   function set(address _addr, uint _i) public {
+        // Update the value at this address
+        myMap[_addr] = _i;
+    } 
+   
+    function remove(address _addr) public {
+    // Reset the value to the default value.
+        delete myMap[_addr];
+    }
+}
+contract NestedMapping {
+    // Nested mapping (mapping from address to another mapping)
+    mapping(address => mapping(uint => bool)) public nested;
+   
+   function get(address _addr1, uint _i) public view returns (bool) {
+        // You can get values from a nested mapping
+        // even when it is not initialized
+        return nested[_addr1][_i];
+    }
+   
+   function set(address _addr1, uint _i, bool _boo) public {
+        nested[_addr1][_i] = _boo;
+ } 
+   function remove(address _addr1, uint _i) public {
+       delete nested[_addr1][_i];
+    }
+}
 ```
 
-When using dynamic tags:
 
-- **Variable names must be capitalized.** For example, use `Element`, not `element`. Otherwise, Astro will try to render your variable name as a literal HTML tag.
 
-- **Hydration directives are not supported.** When using [`client:*` hydration directives](/en/core-concepts/framework-components/#hydrating-interactive-components), Astro needs to know which components to bundle for production, and the dynamic tag pattern prevents this from working.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Array
 
