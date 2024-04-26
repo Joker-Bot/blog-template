@@ -31,6 +31,7 @@ One of the most important aspects of Solidity contracts is state variables. It i
 ##  Units in solidity
 
 There are two types of units in Solidity :
+
 <span style="color:DodgerBlue;"> 1- Time Unit </span>
 
 Time units, on the other hand, are used to measure the duration of certain events in the blockchain, such as the amount of time that must pass before a certain action is allowed to occur. 
@@ -85,12 +86,12 @@ You pay gas spent * gas price amount of ether, where
 Transactions with higher gas price have higher priority to be included in a block.
 Unspent gas will be refunded.
 
-
 ![Alt text for the image](../../assets/images/gas and gas price.png)
 
 There are a couple of major limitations when it comes to running smart contracts:
 - Every deployed transaction, smart contract, or execution of a smart contract, must be run on every single full node on the Ethereum blockchain to guarantee validity. This is wildly inefficient (though newer blockchains are streamlining this)!
 - Because smart contracts are Turing complete, they can potentially execute forever, locking up every single node on the blockchain.
+
 <span style="color:green;"> Example: </span> Calculating Gas Costs 
 
 For any given program, the total gas used is calculated as the sum of the gas for each operation executed by the Ethereum Virtual Machine. For example, adding two numbers in a smart contract costs 3 gas, whereas sending a transaction costs 21,000 gas.
@@ -117,6 +118,7 @@ Solidity supports for, while, and do while loops.
 Don’t write loops that are unbounded as this can hit the gas limit, causing your transaction to fail.
 
 For the reason above, while and do while loops are rarely used.
+
 <span style="color:DodgerBlue;"> For loop Syntax: </span>
 ```astro
 ---
