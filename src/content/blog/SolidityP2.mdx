@@ -101,7 +101,12 @@ You pay gas spent * gas price amount of ether, where
 Transactions with higher gas price have higher priority to be included in a block.
 Unspent gas will be refunded.
 
-![Alt text for the image](../../assets/images/gas and gas price.png)
+Gas Limit:
+There are 2 upper bounds to the amount of gas you can spend
+- gas limit (max amount of gas you’re willing to use for your transaction, set by you)
+- block gas limit (max amount of gas allowed in a block, set by the network)
+
+![Alt text for the image](../../assets/images/gasandgasprice.png)
 
 There are a couple of major limitations when it comes to running smart contracts:
 - Every deployed transaction, smart contract, or execution of a smart contract, must be run on every single full node on the Ethereum blockchain to guarantee validity. This is wildly inefficient (though newer blockchains are streamlining this)!
