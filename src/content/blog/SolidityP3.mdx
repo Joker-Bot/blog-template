@@ -9,91 +9,198 @@ tags: ['Programming', 'Web3', 'smart contract']
 
 **In this Article, We will explain these topics:-**
 
-- Variables Types.
-- Function.
-- View and Pure Functions.
-- Visibility.
-- Function Modifier
+- Data Locations - Storage, Memory, and Calldata
+- Enum
+- Structs
+- Error
+- Events
+- Constructor
 
-## Variables Types
-  
-Here we introduce you to some primitive data types available in Solidity:
+## Data Locations - Storage, Memory, and Calldata
+  Data locations in solidity describe how and where data is kept or accessible on the Ethereum blockchain
+Variables are declared as either storage, memory, or calldata to explicitly specify the location of the data.
 
-- Bool
-- int
-- unit
-- address
-- Bytes32
-
-Default values :
-
-- <span style="color:Orange;"> bool public </span> <span style="color:DodgerBlue;"> defaultBool; </span>  <span style="color:green;">// false  </span>
-- <span style="color:Orange;"> uint public </span> <span style="color:DodgerBlue;">defaultUint; </span> <span style="color:green;"> // 0 </span>
-- <span style="color:Orange;"> int public </span> <span style="color:DodgerBlue;">defaultInt;</span>  <span style="color:green;">// 0 </span>
-
-
-## Function
-
-The basic syntax is shown here
+Storage:
+		○ Data is stored in persistent storage in the blockchains.
+		○ Used for state variables. Those variables that are declared outside of functions are known as state       variables.
+		○ State variables are stored in contract storage and retain their values between function calls and         transactions.
 
 ```astro
----
-function function-name(parameter-list) scope returns() {
-   //statements
-}
----
-
+	pragma solidity ^0.5.0;
+	
+	contract StorageExample {
+	    uint256 public storedData; 
+	
+	    function setStoredData(uint256 newValue) public {
+	        storedData = newValue;
+	    }
+	
+	    function getStoredData() public view returns (uint256) {
+	        return storedData;
+	    }
+	}
 ```
+	Explanation
+	
+	1- we create storedData the state variable stored in contract storage. 
+	2- Changes made in storedData are permanent and affected by the blockchain state between function     
+      calls and transactions. 
+	3- we created a getter and setter to set the value of storedData the variable.
+
+Memory:
+
+		○ Variable is in memory and it exists while a function is being called, they are transitory and will       disappear when the function has completed running.
+		○ Used for local variables, function arguments, and return values.
 
 ```astro
----
-contract Function {
-    // Functions can return multiple values.
-    function returnMany() public pure returns (uint, bool, uint) {
-        return (1, true, 2);
+	pragma solidity ^0.5.0;
+	
+	contract MemoryExample {
+	    function mathoperation(uint256 value1, uint256 value2) public pure returns (uint256) {
+	        uint256 answer;
+	        answer = a + b; // Temporary value stored in memory
+	        return answer;
+	    }
+	}
+```
+Explanation
+
+	1- we create the function name the mathoperation that takes two variable value1 and value2 and        add them and store them in the variable answer.
+	2- The answer variable is stored in memory within the mathoperation function. 
+
+Calldata:
+		○ Read-only data location is used for function arguments.
+		○ Immutable data location.
+		○ Accessing data from calldata is cheaper than storage.
+```astro
+pragma solidity ^0.5.0;
+
+contract CalldataExample {
+    function joinTwoStrings(string calldata string1, string calldata string2) public pure returns (string memory) {
+        bytes memory result = bytes(string1);             // Calldata data used for reading
+        result = abi.encodePacked(result, bytes(string2));         // Concatenate strings in memory
+        return string(result);
     }
-   // Return values can be named.
-    function named() public pure returns (uint x, bool b, uint y) {
-        return (1, true, 2);
-   }
----
+}
+
 ```
-## View and Pure Functions
-There are various types of Solidity functions we’ll be covering (View and Pure Functions)
+Explanation
 
-<span style="color:DarkOrange;"> View functions: </span> are read-only function, which ensures that state variables cannot be modified after calling them. By default, a get method is view function
-- Do not modify state
+1- we create the joinTwoString function that takes two arguments string1 and string2 having     
+    calldata .
+2- The calldata is used for input data that is read-only and immutable. 
+3- The strings are concatenated in memory before returning the result
 
-<span style="color:DarkOrange;"> Pure functions: </span>  do not read or modify the state variables, which returns the values only using the parameters passed to the function or local variables present in it. If the statements which read the state variables, access the address or balance, access any global variable block or msg, call a function that is not pure
-- Do not modify state
-- Do not read state
+## Enum:
+enums stand for Enumerable. 
+	• Enums are user-defined data types that restrict the variable to have only one of the 
+    predefined values.
+	• They are useful to model choice and keep track of state.
+	• Enums can be declared outside of a contract.
 
-Example:
+Syntax
+```astro
+enum  enum-name {
+  value1,
+  value2,
+  ...
+}
 
-![Alt text for the image](../../assets/images/pureVSview-fun.png)
+```
+```astro
+pragma solidity ^0.8.24;
 
-> NOTE: State variables can be declared as public, private, or internal but not external.
+contract Enum {
+    // Enum representing shipping status
+    enum Status {
+        Pending,
+        Shipped,
+        Accepted,
+        Rejected,
+        Canceled
+    }
 
-## Visibility
+    // Default value is the first element listed in
+    // definition of the type, in this case "Pending"
+    Status public status;
 
-Functions and state variables have to declare whether they are accessible by other contracts.
+    // Returns uint
+    // Pending  - 0
+    // Shipped  - 1
+    // Accepted - 2
+    // Rejected - 3
+    // Canceled - 4
+    function get() public view returns (Status) {
+        return status;
+    }
 
-Functions can be declared as
-- public –> any contract and account can call
-- private –> only inside the contract that defines the function
-- internal –> only inside contract that inherits an internal function
-- external –> only other contracts and accounts can call
+    // Update status by passing uint into input
+    function set(Status _status) public {
+        status = _status;
+    }
+
+    // You can update to a specific enum like this
+    function cancel() public {
+        status = Status.Canceled;
+    }
+
+    // delete resets the enum to its first value, 0
+    function reset() public {
+        delete status;
+    }
+}
+
+```
 
 
-## Function Modifier
+## Structs :
+	• They are useful for grouping together related data.
+	• Structs can be declared outside of a contract and imported in another contract.
+  • Suppose you want to keep track of your books in a library. You might want to track the   
+    following attributes about each book
+          - Title
+		      - Author
+		      - Subject
+		      - Book ID
 
-Function Modifiers are used to modify the behavior of a function. For example to add a prerequisite to a function.
+Syntax
+```astro
+struct struct_name { 
+   type1 type_name_1;
+   type2 type_name_2;
+   type3 type_name_3;
+}
 
-<span style="color:DarkOrange;"> Modifiers are : </span>
-- Reusable code
-- Run before and/or after a function call.
+```
 
-<span style="color:DarkOrange;"> Modifiers can be used to: </span>
-- Restrict access
-- Validate inputs
-- Guard against reentrancy hack
+<span style="color:green;"> Example: </span>
+
+```astro
+pragma solidity ^0.5.0;
+
+contract test {
+   struct Book { 
+      string title;
+      string author;
+      uint book_id;
+   }
+   Book book;
+function setBook() public {
+      book = Book('Learn Java', 'TP', 1);
+   }
+   function getBookId() public view returns (uint) {
+      return book.book_id;
+   }
+}
+
+```
+
+
+## Error
+
+
+
+## Events
+
+
+## Constructor
