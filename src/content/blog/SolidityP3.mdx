@@ -21,9 +21,13 @@ tags: ['Programming', 'Web3', 'smart contract']
 Variables are declared as either storage, memory, or calldata to explicitly specify the location of the data.
 
 Storage:
-		○ Data is stored in persistent storage in the blockchains.
-		○ Used for state variables. Those variables that are declared outside of functions are known as state       variables.
-		○ State variables are stored in contract storage and retain their values between function calls and         transactions.
+	- Data is stored in persistent storage in the blockchains.
+	- Used for state variables. Those variables that are declared outside of functions are 
+	   known as state variables.
+	- State variables are stored in contract storage and retain their values between function 
+	   calls and transactions.
+
+
 
 ```astro
 	pragma solidity ^0.5.0;
@@ -40,17 +44,22 @@ Storage:
 	    }
 	}
 ```
-	Explanation
-	
-	1- we create storedData the state variable stored in contract storage. 
-	2- Changes made in storedData are permanent and affected by the blockchain state between function     
-      calls and transactions. 
-	3- we created a getter and setter to set the value of storedData the variable.
+
+
+Explanation
+- we create storedData the state variable stored in contract storage. 
+
+- Changes made in storedData are permanent and affected by the blockchain state between function 
+   calls and transactions. 
+
+- we created a getter and setter to set the value of storedData the variable.
+
 
 Memory:
+	- Variable is in memory and it exists while a function is being called, they are
+           transitory and will disappear when the function has completed running.
+	- Used for local variables, function arguments, and return values.
 
-		○ Variable is in memory and it exists while a function is being called, they are transitory and will       disappear when the function has completed running.
-		○ Used for local variables, function arguments, and return values.
 
 ```astro
 	pragma solidity ^0.5.0;
@@ -63,15 +72,24 @@ Memory:
 	    }
 	}
 ```
+
+
 Explanation
 
-	1- we create the function name the mathoperation that takes two variable value1 and value2 and        add them and store them in the variable answer.
-	2- The answer variable is stored in memory within the mathoperation function. 
+- we create the function name the mathoperation that takes two variable value1 and value2 and add 
+   them and store them in the variable answer.
+
+- The answer variable is stored in memory within the mathoperation function. 
+
+
 
 Calldata:
-		○ Read-only data location is used for function arguments.
-		○ Immutable data location.
-		○ Accessing data from calldata is cheaper than storage.
+	
+	- Read-only data location is used for function arguments.
+	- Immutable data location.
+	- Accessing data from calldata is cheaper than storage.
+
+
 ```astro
 pragma solidity ^0.5.0;
 
@@ -82,23 +100,32 @@ contract CalldataExample {
         return string(result);
     }
 }
-
 ```
+
+
 Explanation
 
-1- we create the joinTwoString function that takes two arguments string1 and string2 having     
-    calldata .
-2- The calldata is used for input data that is read-only and immutable. 
-3- The strings are concatenated in memory before returning the result
+- we create the joinTwoString function that takes two arguments string1 and string2 having 
+   calldata.
+
+- The calldata is used for input data that is read-only and immutable. 
+
+- The strings are concatenated in memory before returning the result
+
+
 
 ## Enum:
 enums stand for Enumerable. 
-	• Enums are user-defined data types that restrict the variable to have only one of the 
-    predefined values.
-	• They are useful to model choice and keep track of state.
-	• Enums can be declared outside of a contract.
+	- Enums are user-defined data types that restrict the variable to have only one of the 
+	  predefined values.
+
+	- They are useful to model choice and keep track of state.
+
+	- Enums can be declared outside of a contract.
+
 
 Syntax
+
 ```astro
 enum  enum-name {
   value1,
@@ -107,6 +134,9 @@ enum  enum-name {
 }
 
 ```
+
+
+
 ```astro
 pragma solidity ^0.8.24;
 
@@ -151,6 +181,7 @@ contract Enum {
 }
 
 ```
+
 
 
 ## Structs :
